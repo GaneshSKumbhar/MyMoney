@@ -1,0 +1,10 @@
+{
+  "name": "My Money - Expense Tracker",
+  "short_name": "My Money",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f6f8f6",
+  "theme_color": "#166534",
+  "description": "Simple private monthly income and expense tracking.",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
