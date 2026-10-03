@@ -2,7 +2,7 @@ const auth$ = selector => document.querySelector(selector);
 const authHash = async value => Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value)))).map(item => item.toString(16).padStart(2,"0")).join("");
 const authBytes = () => crypto.getRandomValues(new Uint8Array(32));
 const authFrom64 = value => Uint8Array.from(atob(value), item => item.charCodeAt(0));
-function unlockApp(){auth$("#lockScreen").hidden=true;auth$("#unlockPin").value="";auth$("#unlockMessage").textContent=""}
+function unlockApp(){auth$("#lockScreen").hidden=true;auth$("#unlockPin").value="";auth$("#unlockMessage").textContent="";window.dispatchEvent(new Event("my-money-unlocked"))}
 function lockAtStart(){if(!localStorage.getItem("my-money-pin"))return;auth$("#lockScreen").hidden=false;auth$("#biometricUnlock").hidden=!localStorage.getItem("my-money-biometric")}
 async function setPIN(){const pin=prompt("Create a 4 to 12 digit PIN for My Money.");if(!pin||!/^\d{4,12}$/.test(pin)){alert("Please use 4 to 12 digits.");return}if(pin!==prompt("Enter the PIN again.")){alert("PINs did not match.");return}localStorage.setItem("my-money-pin",await authHash(pin));auth$("#securityStatus").textContent="PIN lock is active."}
 async function removePIN(){const saved=localStorage.getItem("my-money-pin");if(!saved){auth$("#securityStatus").textContent="No PIN is currently set.";return}const pin=prompt("Enter your current PIN to remove the app lock.");if(!pin)return;if(await authHash(pin)!==saved){alert("Incorrect PIN. The app lock was not changed.");return}localStorage.removeItem("my-money-pin");localStorage.removeItem("my-money-biometric");auth$("#securityStatus").textContent="PIN and phone lock removed."}
