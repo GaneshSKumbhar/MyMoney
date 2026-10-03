@@ -1,46 +1,5 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#155e3a" /><title>Cloud Backup · My Money</title>
-  <link rel="stylesheet" href="backup.css" />
-</head>
-<body>
-  <main class="backup-page">
-    <a class="back-link" href="index.html">← Back to My Money</a>
-    <section class="backup-card" aria-labelledby="backupTitle">
-      <div class="cloud-mark" aria-hidden="true">☁</div>
-      <p class="eyebrow">MY MONEY · CLOUD BACKUP</p>
-      <h1 id="backupTitle">Keep your money records safe</h1>
-      <p class="intro">Use one private account to back up your data and restore it after reinstalling the app or changing phones.</p>
-
-      <div id="accountChoice" class="choice-panel">
-        <button id="createAccount" class="primary">Create backup account</button>
-        <button id="signIn" class="secondary">I already have an account</button>
-      </div>
-
-      <form id="authForm" hidden>
-        <h2 id="authTitle">Create your backup account</h2>
-        <p id="authHelp">Choose an email and password that you can remember.</p>
-        <label>Email<input id="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required /></label>
-        <label>Password<input id="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required /></label>
-        <p class="help">Use at least 8 characters. Keep your password private.</p>
-        <p id="authStatus" class="status" role="status"></p>
-        <button id="authSubmit" class="primary" type="submit">Create account</button>
-        <button id="switchAuth" class="link-button" type="button">Already have an account? Sign in</button>
-      </form>
-
-      <section id="signedIn" hidden>
-        <div class="signed-account"><strong>✓ Signed in</strong><span id="accountEmail"></span></div>
-        <h2>Your cloud backup</h2>
-        <p>Tap Back up now after adding records. Your app also saves changes automatically while you are signed in.</p>
-        <div class="action-stack"><button id="backupNow" class="primary" type="button">Back up now</button><button id="restoreNow" class="secondary" type="button">Restore cloud backup</button></div>
-        <p id="backupStatus" class="status" role="status"></p>
-        <button id="signOut" class="link-button danger" type="button">Sign out on this phone</button>
-      </section>
-    </section>
-    <p class="privacy-note">Your backup is private to the email account you use here. Never share your password.</p>
-  </main>
-  <script src="backup.js"></script>
-</body>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#155e3a" /><title>Sign in · My Money</title><link rel="stylesheet" href="backup.css" /></head>
+<body><main class="backup-page"><a class="back-link" href="index.html">← Back to My Money</a><section class="backup-card" aria-labelledby="backupTitle"><div class="cloud-mark" aria-hidden="true">☁</div><p class="eyebrow">MY MONEY · CLOUD BACKUP</p><h1 id="backupTitle">Sign in to your backup</h1><p class="intro">Sign in to view your saved money records and restore them when needed.</p><div id="accountChoice" class="choice-panel"><button id="createAccount" class="primary">Create backup account</button><button id="signIn" class="secondary">I already have an account</button></div><form id="authForm" hidden><h2 id="authTitle">Create your backup account</h2><p id="authHelp">Choose an email and password that you can remember.</p><label>Email<input id="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required /></label><label>Password<input id="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required /></label><p class="help">Use at least 8 characters. Keep your password private.</p><p id="authStatus" class="status" role="status"></p><button id="authSubmit" class="primary" type="submit">Create account</button><button id="switchAuth" class="link-button" type="button">Already have an account? Sign in</button></form></section><p class="privacy-note">Your data is private to this account. Never share your password.</p></main><script src="backup.js"></script></body>
 </html>
