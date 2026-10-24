@@ -1,0 +1,4 @@
+const themeButton=document.querySelector("#themeButton"),savedTheme=()=>localStorage.getItem("my-money-theme")||"system";
+function resolvedTheme(){const choice=savedTheme();return choice==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):choice}
+function drawTheme(){const dark=resolvedTheme()==="dark";document.documentElement.dataset.theme=dark?"dark":"light";themeButton.textContent=dark?"☀":"☾";themeButton.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");themeButton.title=dark?"Light mode":"Dark mode";document.querySelector('meta[name="theme-color"]').content=dark?"#10241a":"#155e3a"}
+themeButton.onclick=()=>{localStorage.setItem("my-money-theme",resolvedTheme()==="dark"?"light":"dark");drawTheme()};matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{if(savedTheme()==="system")drawTheme()});drawTheme();
